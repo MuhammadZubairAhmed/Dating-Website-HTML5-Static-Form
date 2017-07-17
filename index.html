@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dating Web</title>
+    <style>
+        #for {
+            width: 100%;
+        }
+        .field{
+            background-color: lightyellow;
+            border: solid 10px yellow;
+            margin-bottom: 10px;
+            width: 720px;
+        }
+        .lab{
+            display: inline-block;
+            width: 180px;
+            text-align: right;
+            margin-top: 10px;
+
+
+        }
+        input{
+            cursor: pointer;
+        }
+        textarea{
+            cursor: pointer;
+        }
+        .auto{
+            width: auto;
+        }
+        .area{
+            width: 360px;
+            height: 50px;
+        }
+        #em{
+            background-color: pink;
+        }
+        label:hover { font-size:40px }
+        input:hover{
+            font-size:40px
+        }
+
+
+    </style>
+
+
+</head>
+<body>
+<h1>  Please Enter your Details For Our Dating Website </h1>
+ <form id="for"action="destination" method="post" enctype="multipart/form-data">
+
+     <fieldset class="field">
+         <legend> <b>Your Face </b> </legend>
+    <label class="lab" for="Your Image"> Your Image:</label>
+         <input type="file"  id="your image" onchange="previewFile()">
+          <p>ImagePreview:</p> <img src="" height="100" alt="">
+         <script>
+             function previewFile() {
+                 var preview = document.querySelector('img');
+                 var file    = document.querySelector('input[type=file]').files[0];
+                 var reader  = new FileReader();
+
+                 reader.onloadend = function () {
+                     preview.src = reader.result;
+                 }
+
+                 if (file) {
+                     reader.readAsDataURL(file);
+                 } else {
+                     preview.src = "";
+                 }
+             }
+         </script>
+</fieldset>
+
+     <fieldset class="field">
+         <legend>  <b> Your General Information</b> </legend>
+         <label class="lab" for="name"> Name:</label>
+         <input type="text" name="Name" id="name" placeholder="Your Full Name"> <br> <br>
+
+         <label class="lab" for="gender"> Gender:</label>
+         <input class="auto" type="radio" name="gender" id="gender" value="Male"> Male
+         <input class="auto" type="radio" name="gender" value="Female"> Female
+         <br><br>
+         <label class="lab" for="age"> Age*:</label>
+         <input type="number" name="no" id="age" required>
+      <br><br>
+         <label class="lab" for="date"> Date of birth:</label>
+         <input type="date" name="date" id="date" >
+         <br><br>
+         <label class="lab" for="color"> Favorite color:</label>
+         <input type="color" name="color" id="color" >
+         <br><br>
+         <label class="lab" for="country"> Your country:</label>
+<select id="country">
+    <option value="hk"> Hongkong </option>
+    <option value="uk"> United kingdom </option>
+    <option value="usa"> United State America </option>
+    <option value="uae"> Dubai </option>
+
+</select>
+
+     </fieldset>
+     <fieldset class="field">
+
+         <legend> <b> Your Indicators</b></legend>
+         <label class="lab" for="range"> Height:</label>
+         <sup> Short</sup><input type="range" name="range"  id="range"> <sup> Tall</sup><br>
+         <label class="lab" for="range2"> Salary:</label>
+         <sup> Poor</sup><input type="range" name="range2"  id="range2"> <sup> Rich</sup>
+
+     </fieldset>
+
+     <fieldset class="field">
+         <legend> <b>Your Contact Information </b></legend>
+         <label class="lab" for="email"> Email:</label>
+         <input id="em" type="email" name="email" id="email" >
+         <br><br>
+         <label class="lab" for="mobile"> Mobile:</label>
+         <input type="text" name="mobbile" id="mobile" >
+         <br><br>
+         <label class="lab" for="address"> Address:</label>
+         <textarea  class="area" id="address">  </textarea>
+<br> <br>
+
+         <label class="lab" for="method"> Method to contact you:</label>
+       <input class="auto" type="checkbox"  value="Email" id="method"> Email
+         <input class="auto" type="checkbox"  value="WhatsApp">WhatsApp
+          <input class="auto" type="checkbox"  value="In-app chat">In-app chat
+
+
+     </fieldset>
+<br>
+     <input type="submit" value="submit">
+ </form>
+</body>
+</html>
